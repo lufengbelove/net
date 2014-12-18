@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+  
+<templates xml:space="preserve">
+
+	<t t-name="Many2OneSelection">
+            <div class="many2one">
+                <input type="text"
+                    t-att-id="widget.id"
+                    t-att-value="widget.value"
+                    style="width:96%;"
+                />
+
+    			<span class="drop_down_button">
+                	<img t-att-src='_s + "/web/static/src/img/down-arrow.png"'/>
+                </span>
+            </div>
+	</t>
+	
+	<t t-name="Input">
+            <div>
+                <input type="text"
+                    t-att-id="widget.id"
+                    t-att-value="widget.value"
+                    style="width:96%;"
+                />
+            </div>
+	</t>
+	
+	<t t-name="Many2OneUi">
+            <div class="many2oneui">
+             	<ul  class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all openerp" tabindex="0">
+				</ul>
+            </div>
+	</t>
+	
+	<t t-name="Label">
+            <div class="commlabel">
+                <label></label>
+            </div>
+	</t>
+	
+	<t t-name="Button">
+            <div>
+                <button/>
+            </div>
+	</t>
+	
+	<t t-name="DialogButton">
+            <button t-att-str="widget.str"/>
+	</t>
+	
+	<t t-name="SearchBar">
+            <div>
+           		 <textarea  id="textarea" rows="1"  style="width:100%;"></textarea>
+            </div>
+	</t>
+	
+	
+	<t t-name="selectTemplatesPopupButton">
+	    <button type="button">
+	    	下一步
+	    </button>
+	</t>
+	
+	<t t-name="Custom">
+		<div>
+				        
+        </div>
+	</t>
+	
+	<t t-name="SearchBar">
+		<div width="100%">
+				        
+        </div>
+	</t>
+	
+	<t t-name="SearchBarView">
+		<div width="100%">
+				       
+        </div>
+	</t>
+	
+	<t t-name="SearchPage">
+		<div class="oe_popup_list_pager">
+
+        </div>
+	</t>
+	
+	<t t-name = "PaginationSelection">
+		<div>
+			<label>每页</label>
+			<select>
+			  <option value ="10">10</option>
+			  <option value ="20">20</option>
+			  <option value="50">50</option>
+			  <option value="100">100</option>
+			</select>			
+		</div>
+	</t>
+	
+	<t t-name = "Pagination">
+		<div class="dataTables_wrapper">
+			<div class="dataTables_paginate paging_simple_numbers">
+				<a id="previous"  class="paginate_button previous ">上一页</a>
+				<span>
+				    <!-- <a class="paginate_button current">1</a>
+				    <a class="paginate_button ">2</a>
+				    <a class="paginate_button ">3</a>
+				    <a class="paginate_button ">4</a>
+				    <a class="paginate_button ">5</a>
+				    <a class="paginate_button ">6</a> -->
+				</span>
+				<a id="next" class="paginate_button next" >下一页</a>
+			</div>
+		</div>
+		
+		<!-- <div class="root">
+			<label>每页</label>		
+		</div> -->
+	</t>
+	
+	
+	<t t-name = "PageLabel">
+		<div>
+			<label id="start_value"></label>
+			<label>-</label>
+			<label id="end_value"></label>
+			<label> 共 </label>
+			<label id="size"></label>
+			<label>条</label>
+		</div>
+	</t>
+	
+	<t t-name="CustomCITemplatePage">
+		<div style="height:100%;">		
+			<div class="search_option" style="position:relative;">
+				
+			</div>
+			<div class="ztree" id="ctitree"></div>
+			<div class="listview">
+				<div class="btnarea" style="position:relative;height:13%;"></div>
+				<div class="listarea" style="height:auto;max-height:80%;overflow-y:scroll;padding-left:3%;"></div>
+				<div class="pagearea" style="position:relative;min-height:12%"></div>
+			</div> 
+        </div>
+	</t>
+	
+	<t t-name="CustomEditPage">
+		<div style="height:100%;width:100%;">		
+			<div class="edit_header"></div>
+			<div class="edit_content">
+				<div class="edit_form edit_form_sheet">
+					<div class="first"></div>
+					<div class="second"></div>
+				</div>
+			</div>
+        </div>
+	</t>
+		
+	
+	
+	<t t-name="aTag">
+		<div>		
+			<a href="#"></a>
+        </div>
+	</t>
+	
+	<t t-name="Bool">
+		<div>		
+			<select>
+			  <option value ="1">是</option>
+			  <option value ="0">否</option>
+			</select>
+        </div>
+	</t>
+	
+	<t t-name="TextArea">
+		<div>		
+			<textarea class="form_text" placeholder="备注...."></textarea>
+        </div>
+	</t>
+	
+	<t t-name="Notebook">
+	   	<div class="oe_clear ui-tabs ui-widget ui-widget-content ui-corner-all">
+		  <ul class="oe_notebook ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+		    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" div_id="attributes"><a href="#" onclick="javascript:return false;">扩展属性</a></li>
+		    <li class="ui-state-default ui-corner-top" div_id="relations"><a href="#" onclick="javascript:return false;">关系</a></li>
+		  </ul>
+		</div>
+	</t>
+	
+	<t t-name="Attributes">
+	   	<div id="attributes" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+	
+	<t t-name="Relations">
+	   	<div id="relations" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+	
+	<t t-name="Comm.SelectCreatePopup.search.buttons">
+	    <t t-if="! widget.options.disable_multiple_selection">
+	        <button type="button" class="oe_button oe_selectcreatepopup-search-select oe_highlight" disabled="disabled">Select</button>
+	    </t>
+	    <t t-if="!widget.options.no_create">
+	    or </t>
+	    <a class="oe_button oe_selectcreatepopup-search-close oe_bold oe_form_button_cancel" href="javascript:void(0)">Cancel</a>
+	</t>
+</templates>

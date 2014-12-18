@@ -1,0 +1,54 @@
+<openerp>
+	<data>
+		<record id="commcmdb_action_ci_show1" model="ir.actions.client">
+			<field name="tag">custom.cimanagepage</field>
+		</record>
+
+		<record id="commcmdb_action_ci_edit_show" model="ir.actions.client">
+			<field name="tag">custom.cimanageedit</field>
+		</record>
+		<record model="ir.ui.view" id="commcmdb_ciprocess_list">
+			<field name="name">CIProcess</field>
+			<field name="model">commcmdb.ci.process</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="CIProcess">
+					<field name="code"/>
+					<field name="work_status"/>
+					<field name="process_category"/>
+					<field name="relation_time"/>
+					<field name="planning"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="commcmdb_cirelation_list">
+			<field name="name">CI Relation</field>
+			<field name="model">commcmdb.ci.relation</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="CI Relation">
+					<field name="sourceci_id"/>
+					<field name="targetci_id"/>
+					<field name="relation_id"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="commcmdb_ciexpendattr_list">
+			<field name='name'>CI Expend Attr</field>
+			<field name='model'>commcmdb.ci.expendattr</field>
+			<field name='type'>tree</field>
+			<field name='arch' type='xml'>
+				<tree string="CIExpendAttr">
+					<field name='ciid'/>
+					<field name='attribute_id'/>
+					<field name='name'/>
+					<field name='attribute_group'/>
+					<field name='value'/>
+				</tree>
+			</field>
+		</record>
+
+			<menuitem id="menu_commcmdb_ciinstance_manager" action="commcmdb_action_ci_show1" name="CI 管理" parent="menu_commcmdb_root" sequence="80"/>
+			<menuitem id="menu_commcmdb_ciinstance_edit" action="commcmdb_action_ci_edit_show" name="CI 管理(Edit)" parent="menu_commcmdb_root" sequence="81"/>
+		</data>
+	</openerp>

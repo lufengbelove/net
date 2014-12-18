@@ -1,0 +1,45 @@
+#ctitree{
+	border:1px solid #617775;
+	width:13%;
+	float:left;
+	padding-top:0.5%;
+	padding-left:0.8%;
+	overflow-y:scroll;
+	max-height:80%;
+	background-color:#F0F6E4;
+}
+
+.listview{
+	border:1px solid green;
+	width:85%;
+	float:right;
+	height:76%;
+	background: url(/web/static/src/img/form_sheetbg.png);
+	
+}
+
+.listview .form{
+	border:1px solid yellow;
+}
+
+
+
+.search_option{
+	float:right;
+	border:1px solid red;
+	width:85%;
+	height:23%;
+	border-bottom: 1px solid rgb(202, 202, 202);
+	background-color: rgb(237, 237, 237);
+	background-image: linear-gradient(to bottom, rgb(252, 252, 252), rgb(222, 222, 222));
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 0px 9px rgba(0, 0, 0, 0.1);
+}
+
+.search_option h2{
+	display: inline-block;
+	font-size: 18px;
+	margin-top:12px;
+	margin-left:10px;
+}
+
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}

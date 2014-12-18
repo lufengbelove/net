@@ -1,0 +1,9 @@
+<openerp>
+	<data>
+		<record id="commcmdb_action_ci_show1" model="ir.actions.client">
+			<field name="tag">custom.cimanagepage</field>
+		</record>
+
+		<menuitem id="menu_commcmdb_ciinstance_manager" action="commcmdb_action_ci_show1" name="CI 管理" parent="menu_commcmdb_root" sequence="80"/>
+	</data>
+</openerp>

@@ -1,0 +1,43 @@
+.oe_color_div {  
+    width: 100px;  
+    height: 80px;  
+    margin: 10px;  
+}
+
+ .efg{
+  position:absolute;
+  left:100px;
+ }
+ 
+ .commlabel{
+ 	padding-top:1%;
+ 	padding-bottom:1%;
+ 	font-weight:bold;
+ 	border-right:1px solid  #DDDDDD;
+ 	width:100%;
+ }
+ 
+
+
+ .many2oneui ul{
+ 	width:97%;
+ 	z-index:10;
+ }
+ 
+.many2oneui{
+ 	width:97%;
+ }
+ 
+ .many2oneui ul{
+ 	display:none;
+ }
+ 
+ .many2one .drop_down_button{
+ 	position: absolute;
+	top: 2px;
+	right: 0px;
+ }
+ .form_text{
+ 	height:100%;
+ 	width:100%;
+ }

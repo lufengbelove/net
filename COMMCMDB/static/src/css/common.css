@@ -1,0 +1,13 @@
+/*
+此文件保留的是openerp中常用的css样式，
+仅做开发的时候能迅速调用，
+并不直接用在项目里
+*/
+
+/*编辑表单中主div边框的阴影和颜色*/
+.edit_form_sheet{
+	border: 1px solid #c8c8d3;
+  	-moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  	-webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}

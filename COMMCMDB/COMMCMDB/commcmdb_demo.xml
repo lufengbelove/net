@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- demo -->
+	
+		
+	
+		<!-- relation demo -->
+			<record id="commcmdb_relation_demo1" model="commcmdb.relation">
+	            <field name="name">虚拟设备连物理设备</field>
+	        </record>
+	        <record id="commcmdb_relation_demo2" model="commcmdb.relation">
+	        	<field name="name">网络设备管理IP</field>
+	        </record>
+	        <record id="commcmdb_relation_demo3" model="commcmdb.relation">
+	        	<field name="name">端口IP</field>
+	        </record>
+	        <record id="commcmdb_relation_demo4" model="commcmdb.relation">
+	        	<field name="name">网络设备自带板卡</field>
+	        </record>
+	        <record id="commcmdb_relation_demo5" model="commcmdb.relation">
+	        	<field name="name">网络设备自带端口</field>
+	        </record>
+	        <record id="commcmdb_relation_demo6" model="commcmdb.relation">
+	            <field name="name">网络设备连对端端口</field>
+	        </record>
+	        <record id="commcmdb_relation_demo7" model="commcmdb.relation">
+	        	<field name="name">板卡自带端口</field>
+	        </record>
+	        <record id="commcmdb_relation_demo8" model="commcmdb.relation">
+	        	<field name="name">父端口连子端口</field>
+	        </record>
+	        <record id="commcmdb_relation_demo9" model="commcmdb.relation">
+	        	<field name="name">物理端口连虚拟端口</field>
+	        </record>
+	        <record id="commcmdb_relation_demo10" model="commcmdb.relation">
+	        	<field name="name">网络端口互联</field>
+	        </record>
+	        <record id="commcmdb_relation_demo11" model="commcmdb.relation">
+	        	<field name="name">服务器IP</field>
+	        </record>
+	        <record id="commcmdb_relation_demo11" model="commcmdb.relation">
+	        	<field name="name">内翻外</field>
+	        </record>
+	        
+	        <record id="commcmdb_relation_demo11" model="commcmdb.relation">
+	        	<field name="name">外翻内</field>
+	        </record>
+        <!-- relation demo end-->
+	
+		<!-- c demo -->
+			<record id="commcmdb_c_demo1" model="commcmdb.c">
+	            <field name="name">网络设备</field>
+	        </record>
+	        <record id="commcmdb_c_demo2" model="commcmdb.c">
+	        	<field name="name">网络资源</field>
+	        </record>
+	        <record id="commcmdb_c_demo3" model="commcmdb.c">
+	        	<field name="name">网络线路</field>
+	        </record>
+	        <record id="commcmdb_c_demo4" model="commcmdb.c">
+	        	<field name="name">应用系统</field>
+	        </record>
+	        <record id="commcmdb_c_demo5" model="commcmdb.c">
+	        	<field name="name">其他</field>
+	        </record>
+	        
+	       
+        <!-- c demo end-->
+        
+        <!-- t demo -->
+			<record id="commcmdb_t_demo1" model="commcmdb.t">
+	            <field name="name">物理设备</field>
+	            <field name="pId" ref="commcmdb_c_demo1"/>
+	        </record>
+	        <record id="commcmdb_t_demo2" model="commcmdb.t">
+	        	<field name="name">安全设备</field>
+	        	<field name="pId" ref="commcmdb_c_demo1"/>
+	        </record>
+	        <record id="commcmdb_t_demo3" model="commcmdb.t">
+	        	<field name="name">网络服务器</field>
+	        	<field name="pId" ref="commcmdb_c_demo1"/>
+	        </record>
+	        <record id="commcmdb_t_demo4" model="commcmdb.t">
+	        	<field name="name">虚拟设备</field>
+	        	<field name="pId" ref="commcmdb_c_demo1"/>
+	        </record>
+	        <record id="commcmdb_t_demo5" model="commcmdb.t">
+	        	<field name="name">端口</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo6" model="commcmdb.t">
+	            <field name="name">板卡</field>
+	            <field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo7" model="commcmdb.t">
+	        	<field name="name">IP</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo8" model="commcmdb.t">
+	        	<field name="name">VLAN</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo9" model="commcmdb.t">
+	        	<field name="name">域名</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo10" model="commcmdb.t">
+	        	<field name="name">负载均衡</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_t_demo11" model="commcmdb.t">
+	            <field name="name">专线</field>
+	            <field name="pId" ref="commcmdb_c_demo3"/>
+	        </record>
+	        <record id="commcmdb_t_demo12" model="commcmdb.t">
+	        	<field name="name">布线</field>
+	        	<field name="pId" ref="commcmdb_c_demo3"/>
+	        </record>
+	        <record id="commcmdb_t_demo13" model="commcmdb.t">
+	        	<field name="name">应用系统</field>
+	        	<field name="pId" ref="commcmdb_c_demo4"/>
+	        </record>
+	        <record id="commcmdb_t_demo14" model="commcmdb.t">
+	        	<field name="name">硬件</field>
+	        	<field name="pId" ref="commcmdb_c_demo5"/>
+	        </record>
+	        
+        <!-- t demo end-->
+        
+        <!-- i demo -->
+			<record id="commcmdb_i_demo1" model="commcmdb.i">
+	            <field name="name">路由器</field>
+	            <field name="pId" ref="commcmdb_t_demo1"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo2" model="commcmdb.i">
+	            <field name="name">交换机</field>
+	            <field name="pId" ref="commcmdb_t_demo1"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo3" model="commcmdb.i">
+	            <field name="name">防火墙</field>
+	            <field name="pId" ref="commcmdb_t_demo1"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo4" model="commcmdb.i">
+	            <field name="name">传输设备</field>
+	            <field name="pId" ref="commcmdb_t_demo1"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo5" model="commcmdb.i">
+	            <field name="name">负载均衡</field>
+	            <field name="pId" ref="commcmdb_t_demo1"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo6" model="commcmdb.i">
+	            <field name="name">SSL</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo7" model="commcmdb.i">
+	            <field name="name">IPS</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo8" model="commcmdb.i">
+	            <field name="name">IDS</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo9" model="commcmdb.i">
+	            <field name="name">ACS</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo10" model="commcmdb.i">
+	            <field name="name">RSA</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        <record id="commcmdb_i_demo11" model="commcmdb.i">
+	            <field name="name">Array</field>
+	            <field name="pId" ref="commcmdb_t_demo2"/>
+	        </record>
+	        
+	        
+	        
+        <!-- i demo end-->
+        
+        <!-- citemplate demo -->
+			<record id="commcmdb_citempate_demo1" model="commcmdb.citemplate">
+	            <field name="name">网络设备</field>
+	            <field name="pId" ref="commcmdb_c_demo1"/>
+	        </record>
+	        <record id="commcmdb_citempate_demo2" model="commcmdb.citemplate">
+	        	<field name="name">网络资源</field>
+	        	<field name="pId" ref="commcmdb_c_demo2"/>
+	        </record>
+	        <record id="commcmdb_citempate_demo3" model="commcmdb.citemplate">
+	        	<field name="name">网络线路</field>
+	        	<field name="pId" ref="commcmdb_c_demo3"/>
+	        </record>
+	        <record id="commcmdb_citempate_demo4" model="commcmdb.citemplate">
+	        	<field name="name">应用系统</field>
+	        	<field name="pId" ref="commcmdb_c_demo4"/>
+	        </record>
+	        <record id="commcmdb_citempate_demo5" model="commcmdb.citemplate">
+	        	<field name="name">其他</field>
+	        	<field name="pId" ref="commcmdb_c_demo5"/>
+	        </record>
+	        
+	        <record id="commcmdb_citempate_demo6" model="commcmdb.citemplate">
+	            <field name="name">test1</field>
+	        </record>
+	        <record id="commcmdb_citempate_demo7" model="commcmdb.citemplate">
+	        	<field name="name">test2</field>
+	        </record>
+	        <record id="commcmdb_citempate_demo8" model="commcmdb.citemplate">
+	        	<field name="name">test3</field>
+	        </record>
+	        <record id="commcmdb_citempate_demo9" model="commcmdb.citemplate">
+	        	<field name="name">test4</field>
+	        </record>
+	        <record id="commcmdb_citempate_demo10" model="commcmdb.citemplate">
+	        	<field name="name">test5</field>
+	        </record>
+        <!-- citemplate demo end-->
+        
+    <!-- demo end -->
+
+    </data>
+</openerp>

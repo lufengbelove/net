@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="xml">
+	<t t-name="SourceFrom">
+		<div>
+			<select id="source_input">
+				<option value="1"></option>
+				<option value="0">手工</option>
+				<option value="0">自动</option>
+			</select>
+		</div>
+	</t>
+	<t t-name="RunState">
+		<div>
+			<select id="run_state">
+				<option value="1"></option>
+				<option value="0">ready</option>
+				<option value="0">working</option>
+				<option value="0">repairing</option>
+				<option value="0">filed</option>
+			</select>
+		</div>
+	</t>
+	<t t-name="CIManagePage">
+		<div style="height:100%;">		
+			<div class="search_option" style="position:relative;">
+
+			</div>
+			<div class="ztree" id="ctitree"></div>
+			<div class="listview">
+				<div class="btnarea" style="position:relative;height:13%;">
+					<div class="oe_form_dropdown_selection">
+						<button class="oe_dropdown_toggle oe_dropdown_arrow oe_opened" style="margin-left:120px;margin-top:23px;width:8;">
+							更多
+						</button>
+						<ul class="oe_dropdown_menu " style="margin-left:120px;margin-top:23px;width:8;">
+							<li><a id="delete_data" class="oe_sidebar_action_a" data-index="0" data-section="other" target="_blank" original-title="">删除</a></li>
+							<li><a id="import_data" class="oe_sidebar_action_a" data-index="1" data-section="other" target="_blank" original-title="">导入</a></li>
+							<li><a id="export_data" class="oe_sidebar_action_a" data-index="2" data-section="other" target="_blank" original-title="">导出</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="listarea" style="height:auto;max-height:80%;overflow-y:scroll;padding-left:3%;"></div>
+				<div class="pagearea" style="position:relative;min-height:12%"></div>
+			</div> 
+		</div>
+	</t>
+
+	<t t-name="CIEditPage">
+		<div style="height:100%;width:100%;">		
+			<div class="edit_header"></div>
+			<div class="edit_content">
+				<div class="edit_form edit_form_sheet"></div>
+			</div>
+        </div>
+
+	</t>
+	<t t-name="Notebook2">
+	   	<div id="cinotebook" class="oe_clear ui-tabs ui-widget ui-widget-content ui-corner-all">
+		  <ul class="oe_notebook ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+		    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" div_id="workcodes"><a href="#" onclick="javascript:return false;">关联的流程</a></li>
+		    <li class="ui-state-default ui-corner-top" div_id="ciattributes"><a href="#" onclick="javascript:return false;">扩展属性</a></li>
+		    <li class="ui-state-default ui-corner-top" div_id="cirelations"><a href="#" onclick="javascript:return false;">关系</a></li>
+		    <li class="ui-state-default ui-corner-top" div_id="ciattachments"><a href="#" onclick="javascript:return false;">附件</a></li>
+		    <li class="ui-state-default ui-corner-top" div_id="logs"><a href="#" onclick="javascript:return false;">日志</a></li>
+		  </ul>
+		</div>
+	</t>
+	<t t-name="RelationProcess">
+	   	<div id="workcodes" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+		
+	<t t-name="WorkRelation">
+	   	<div id="cirelations" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+	<t t-name="CIEditAttributes">
+	   	<div id="ciattributes" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+	<t t-name="CIAttachment">
+	   	<div id="ciattachments" class="tabdiv" style="display:none;">
+
+		</div>
+	</t>
+
+
+</templates>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="ciinstance_demo1" model="commcmdb.ci">
+			<field name="code">1</field>
+			<field name="name">ci1</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">repairing</field>
+			<field name="ip">192.168.1.10</field>
+		</record>
+		<record id="ciinstance_demo2" model="commcmdb.ci">
+			<field name="code">2</field>
+			<field name="name">ci2</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">working</field>
+			<field name="ip">192.168.1.11</field>
+		</record>
+		<record id="ciinstance_demo3" model="commcmdb.ci">
+			<field name="code">3</field>
+			<field name="name">ci3</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">filed</field>
+			<field name="ip">192.168.1.12</field>
+		</record>
+		<record id="ciinstance_demo4" model="commcmdb.ci">
+			<field name="code">4</field>
+			<field name="name">ci4</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">ready</field>
+			<field name="ip">192.168.2.12</field>
+		</record>
+		<record id="ciinstance_demo5" model="commcmdb.ci">
+			<field name="code">5</field>
+			<field name="name">ci5</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">ready</field>
+			<field name="ip">192.168.2.13</field>
+		</record>
+		<record id="ciinstance_demo6" model="commcmdb.ci">
+			<field name="code">6</field>
+			<field name="name">ci6</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">filed</field>
+			<field name="ip">192.168.2.14</field>
+		</record>
+
+		<record id="ciinstance_demo7" model="commcmdb.ci">
+			<field name="code">7</field>
+			<field name="name">ci7</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">working</field>
+			<field name="ip">192.168.3.14</field>
+		</record>
+		<record id="ciinstance_demo8" model="commcmdb.ci">
+			<field name="code">8</field>
+			<field name="name">ci8</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">repairing</field>
+			<field name="ip">192.168.3.15</field>
+		</record>
+		<record id="ciinstance_demo9" model="commcmdb.ci">
+			<field name="code">9</field>
+			<field name="name">ci9</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">repairing</field>
+			<field name="ip">192.168.3.16</field>
+		</record>
+		<record id="ciinstance_demo10" model="commcmdb.ci">
+			<field name="code">10</field>
+			<field name="name">ci10</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">repairing</field>
+		</record>
+		<record id="ciinstance_demo11" model="commcmdb.ci">
+			<field name="code">11</field>
+			<field name="name">ci11</field>
+			<field name="sourcefrom">手工</field>
+			<field name="status">ready</field>
+		</record>
+		<record id="ciinstance_demo12" model="commcmdb.ci">
+			<field name="code">12</field>
+			<field name="name">ci12</field>
+			<field name="sourcefrom">自动</field>
+			<field name="status">ready</field>
+		</record>
+
+
+	</data>
+
+	</openerp>

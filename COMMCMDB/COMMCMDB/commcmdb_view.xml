@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+		
+        <!-- Addrelations Wizard  -->
+	
+
+		<record id="commcmdb_addrelations_wizard_form" model="ir.ui.view">
+			<field name="name">commcmdb.addrelations.wizard.form</field>
+			<field name="model">commcmdb.addrelations.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Add Reations Wizard Form" version="7.0">
+						<group col="4">	
+							<field name="sourcecitemplate_id" widget="many2one"/>						
+							<field name="relation_id"/>
+						</group>
+						<footer><selecttemplatespopupbutton/><button name="cancel" string="Cancel" special="cancel" class="oe_link"/></footer>
+				</form>
+			</field>
+		</record>
+				
+		<record id="commcmdb_addrelations_wizard_show" model="ir.actions.act_window">
+				<field name="name">Add Relations Wizard Form</field>
+				<field name="type">ir.actions.act_window</field>
+				<field name="res_model">commcmdb.addrelations.wizard</field>
+				<field name="view_type">form</field>
+				<field name="view_mode">form</field>
+				<field name="target">new</field>
+		</record>
+		
+
+		
+     <!-- Addrelations Wizard end  -->
+     
+	 <!-- CITemplate -->
+		
+        
+<!--         <record id="commcmdb_citemplate_search_view" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.search.view</field>
+            <field name="model">commcmdb.citemplate</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                <filter string="test"
+				domain="[('c_id','=',1)]"
+						help="Test"/>
+                	<field name="parent_id"/>
+                    <field name="full_name"/>
+					<field name="c_id"/>
+					<field name="t_id"/>
+					<field name="i_id"/>
+					<field name="relations"/>
+                </search>
+            </field>
+        </record> -->
+        
+        <record id="commcmdb_citemplate_form_view" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.form</field>
+            <field name="model">commcmdb.citemplate</field>
+            <field name="arch" type="xml">
+                <form string="Category" version="7.0">
+                    <sheet>
+                        <group col="4">
+                            <field name="parent_id" on_change="onchange_parent_get_inherit_attributes(parent_id)"/>
+                            <field name="name"/>
+                            <field name="c_id"/>
+                            <field name="t_id" domain="[('pId','=',c_id)]"/>
+                            <field name="i_id" domain="[('pId','=',t_id)]"/>
+                            <field name="is_default"/>
+                        </group>
+                        <group col="4" string="备注">
+                                <field name="description" placeholder="备注...." colspan="4" nolabel="1"/>
+                        </group>
+                        <notebook>
+							<page string="模板属性">
+								<field name="attributes"/>
+								<!-- <field name="attributes" widget="many2many"/> -->
+									<!-- <tree string="Attributes">
+										<field name="ciattribute_id"/>
+										<field name="attrgroup_id"/>
+									</tree>
+								</field>		 -->						
+							</page>
+							<page string="关系">
+								<field name="relations">
+									<tree string="Relations" version="7.0" create="true" editable="bottom">
+										<field name="id"/>				
+										<field name="isinherited" invisible="1"/>
+										<!-- attrs="{'readonly':[('isinherited','=',True)]}" -->
+										<field name="sourcecitemplate_id"/>
+										<field name="targetcitemplate_id"/>
+										<field name="relation_id"/>
+										<field name="direction"/>
+									</tree>
+								</field>
+								<!-- <button name="%(commcmdb_addrelations_wizard_show)d" 
+										context="{'sourcecitemplateid':id}" 
+										type="action" 
+										string="添加关系" 
+										class="oe_edit_only"/>
+								
+								<button name='get_wizard' 
+										context="{'sourcecitemplateid':id}" 
+										type='object' 
+										string='添加关系' 
+										class="oe_edit_only"/> -->
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="commcmdb_citemplate_list_view" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.list</field>
+            <field name="model">commcmdb.citemplate</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Template">
+                	<field name="parent_id"/>
+                    <field name="full_name"/>
+					<field name="c_id"/>
+					<field name="t_id"/>
+					<field name="i_id"/>
+                </tree>
+            </field>
+        </record>
+  
+ 
+        <record id="commcmdb_action_citemplate_show" model="ir.actions.act_window">
+            <field name="name">CI Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.citemplate</field>
+            <!--<field name="domain">[('parent_id','=',False)]</field>-->
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- CITemplate END --> 
+	
+	
+	<!-- CI Template Attribute-->
+		<record id="commcmdb_citemplate_attr_list" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.attribute.list</field>
+            <field name="model">commcmdb.citemplate.attribute</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ci Template Attr Tree">
+                	<field name="id"/>
+                    <field name="ciattribute_id"/>
+                    <field name="ciattrgroup_id"/>
+                    <field name="datatype"/>
+                    <field name="defaultvalue"/>
+                    <field name="englishname"/>
+                    <field name="is_clear"/>                             
+                </tree>
+            </field>
+        </record>
+        
+        <record id="commcmdb_action_citemplate_attr_show" model="ir.actions.act_window">
+            <field name="name">CI Template Attribute</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.citemplate.attribute</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        
+	<!-- CI Template Attribute END -->
+	
+	<!-- CI Template Relation -->
+	
+		<record id="commcmdb_citemplate_relation_search_view" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.relation.search.view</field>
+            <field name="model">commcmdb.citemplate.relation</field>
+            <field name="arch" type="xml">
+                <search string="RelationSearch">
+                	<field name="relation_id"/>
+                    <field name="direction"/>
+                    <field name="targetcitemplate_id"/>
+                    <field name="sourcecitemplate_id"/>
+                </search>
+            </field>
+        </record>
+	
+		<!-- <record id="commcmdb_citemplate_relation_form" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.relation.form</field>
+            <field name="model">commcmdb.citemplate.relation</field>
+            <field name="arch" type="xml">
+                <form string="Ci Template Relation Form" version="7.0">
+                    
+                        <group col="4">
+                          
+                           <field name="relation_id"/>
+                    	   <field name="direction"/>
+                    	   <field name="targetcitemplate_id"/>
+                    		<field name="sourcecitemplate_id"/>
+                        </group>
+					
+				</form>
+			</field>
+		</record> -->
+  
+ 		<record id="commcmdb_citemplate_relation_list" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.relation.list</field>
+            <field name="model">commcmdb.citemplate.relation</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ci Template targetrelation Tree">
+                	<field name="id"/>
+                    <field name="relation_id"/>
+                    <field name="direction"/>
+                    <field name="targetcitemplate_id"/>
+                    <field name="sourcecitemplate_id"/>                                   
+                </tree>
+            </field>
+        </record>
+        
+        <!-- <record id="commcmdb_citemplate_sourcerelation_list" model="ir.ui.view">
+            <field name="name">commcmdb.citemplate.sourcerelation.list</field>
+            <field name="model">commcmdb.citemplate.relation</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ci Template sourcerelation Tree">
+                    <field name="relation_id"/>
+                    <field name="direction"/>
+                    <field name="sourcecitemplate_id"/>                  
+                </tree>
+            </field>
+        </record> -->
+        
+        <record id="commcmdb_action_citemplate_relation_show" model="ir.actions.act_window">
+            <field name="name">CI Template Relation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.citemplate.relation</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        
+	<!-- CI Template Relation END -->
+	
+	
+	<!-- CI -->
+        <!-- <record id="commcmdb_ci_form_view" model="ir.ui.view">
+            <field name="name">commcmdb.ci.form</field>
+            <field name="model">commcmdb.ci</field>
+            <field name="arch" type="xml">
+                <form string="Category" version="7.0">
+                    <sheet>
+                        <group col="4">
+                            <field name="template_id" on_change="onchange_template_get_inherit_attributes(template_id)"/>
+                            <field name="name"/>
+                            <field name="c_id"/>
+                            <field name="t_id"/>
+                            <field name="i_id"/>
+                            <field name="status"/>
+                        </group>
+                        <group col="4" string="Remark">
+                                <field name="remark" placeholder="Remark...." colspan="4" nolabel="1"/>
+                        </group>
+                        <notebook>
+							<page string="Attributes">
+								<field name="attributes">
+									<tree string="Attributes" version="7.0" editable="bottom">
+										
+										<field name="name"/>
+										<field name="attrgroup_id"/>
+										<field name="datatype"/>
+										<field name="value"/>
+									</tree>
+								</field>
+							</page>
+							<page string="TargetRelations">
+								<field name="targetrelations">
+									<tree string="TargetRelations" version="7.0" editable="bottom">
+										<field name="relation_id"  context="{'template_id':parent.template_id}"/>
+										<field name="targetci_id"/>
+									</tree>
+								</field>
+							</page>
+							<page string="SourceRelations">
+								<field name="sourcerelations">
+									<tree string="SourceRelations" version="7.0" editable="bottom">
+										<field name="relation_id"  context="{'template_id':parent.template_id}"/>
+										<field name="sourceci_id"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+					<footer> <button name="write" type="object" string="Save"/><button name="cancel" string="Cancel" special="cancel" class="oe_link"/> </footer> 
+				</form>
+			</field>
+		</record> -->
+		
+		<record id="commcmdb_ci_list_view" model="ir.ui.view">
+            <field name="name">commcmdb.ci.list</field>
+            <field name="model">commcmdb.ci</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Template">
+                	<field name="code"/>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="sourcefrom"/>
+                    <field name="time_create"/>
+                    <field name="c_id"/>
+                    <field name="t_id"/>
+                    <field name="i_id"/>
+                </tree>
+            </field>
+        </record>
+  
+ 
+        <record id="commcmdb_action_ci_show" model="ir.actions.act_window">
+            <field name="name">CI</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.ci</field>
+            <!--<field name="domain">[('parent_id','=',False)]</field>-->
+            <field name="domain">[]</field>
+            <field name="target">new</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+        
+
+        
+	<!-- CI END -->
+	
+	<!-- CI RELATION-->
+	
+		<record id="commcmdb_relation_form" model="ir.ui.view">
+            <field name="name">commcmdb.relation.form</field>
+            <field name="model">commcmdb.relation</field>
+            <field name="arch" type="xml">
+                <form string="Relation" version="7.0">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="direction"/>
+                        </group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+  
+ 		<record id="commcmdb_relation_list" model="ir.ui.view">
+            <field name="name">commcmdb.relation.list</field>
+            <field name="model">commcmdb.relation</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Template">
+                    <field name="name"/> 
+                    <field name="direction"/>                    
+                </tree>
+            </field>
+        </record>
+        
+        <record id="commcmdb_action_relation_show" model="ir.actions.act_window">
+            <field name="name">Relation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.relation</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- CI RELATION END -->
+	
+	
+	
+	<!-- ATTR GROUP -->
+	
+		<record id="commcmdb_attrgroup_form" model="ir.ui.view">
+            <field name="name">commcmdb.attrgroup.form</field>
+            <field name="model">commcmdb.attrgroup</field>
+            <field name="arch" type="xml">
+                <form string="Relation" version="7.0">
+                     <group col="4">
+                         <field name="name"/>
+                     </group>
+				</form>
+			</field>
+		</record>
+  
+ 		<record id="commcmdb_attrgroup_list" model="ir.ui.view">
+            <field name="name">commcmdb.attrgroup.list</field>
+            <field name="model">commcmdb.attrgroup</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="AttrGroup">
+                    <field name="name"/>                  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="commcmdb_attrgroup_show" model="ir.actions.act_window">
+            <field name="name">Attribute group</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.attrgroup</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- ATTR GROUP END -->
+	
+	<!-- C -->
+  
+ 
+ 		<record id="commcmdb_c_list" model="ir.ui.view">
+            <field name="name">commcmdb.c.list</field>
+            <field name="model">commcmdb.c</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="cTree">
+                	<field name="id"/>
+                    <field name="name"/>              
+                </tree>
+            </field>
+            
+        </record>
+        
+        <record id="commcmdb_action_c_show" model="ir.actions.act_window">
+            <field name="name">C(First Layer)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.c</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+            <!-- <field name="res_id">8</field> -->
+            <field name="target">current</field>
+        </record>
+        
+        <record id="commcmdb_action_c_search_view" model="ir.ui.view">
+            <field name="name">commcmdb.c.search.view</field>
+            <field name="model">commcmdb.c</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                	<field name="name"/>
+                </search>
+            </field>
+        </record>
+        
+        
+        <record id="commcmdb_action_c_new_show" model="ir.actions.act_window">
+            <field name="name">CNEW(First Layer)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.c</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+            <field name="target">new</field>
+            <field name="search_view_id" ref="commcmdb_action_c_search_view"/>
+        </record>
+        
+        
+        
+	<!-- C END -->
+	
+	<!-- T -->
+  
+ 		<record id="commcmdb_t_list" model="ir.ui.view">
+            <field name="name">commcmdb.t.list</field>
+            <field name="model">commcmdb.t</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tTree">
+                    <field name="full_name"/>                  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="commcmdb_t_form" model="ir.ui.view">
+            <field name="name">commcmdb.t.form</field>
+            <field name="model">commcmdb.t</field>
+            <field name="arch" type="xml">
+                <form string="tForm" version="7.0">
+                     <group col="4">
+                         <field name="pId"/>
+                         <field name="name"/>
+                     </group>
+				</form>
+			</field>
+		</record>
+        
+        <record id="commcmdb_action_t_show" model="ir.actions.act_window">
+            <field name="name">T(Second Layer)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.t</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- T END -->
+	
+	<!-- I -->
+  	
+ 		<record id="commcmdb_i_list" model="ir.ui.view">
+            <field name="name">commcmdb.i.list</field>
+            <field name="model">commcmdb.i</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tTree">
+                    <field name="full_name"/>                  
+                </tree>
+            </field>
+        </record>
+        
+        <record id="commcmdb_i_form" model="ir.ui.view">
+            <field name="name">commcmdb.i.form</field>
+            <field name="model">commcmdb.i</field>
+            <field name="arch" type="xml">
+                <form string="iForm" version="7.0">
+                     <group col="4">
+                         <field name="pId"/>
+                         <field name="name"/>
+                     </group>
+				</form>
+			</field>
+		</record>
+		
+        <record id="commcmdb_action_i_show" model="ir.actions.act_window">
+            <field name="name">I(Third Layer)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.i</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- I END -->
+	
+	<!-- CIATTRIBUTEPOOL -->
+	
+  		<!-- <record id="commcmdb_ciattribute_form_view" model="ir.ui.view">
+            <field name="name">commcmdb.ciattribute.form</field>
+            <field name="model">commcmdb.ciattribute</field>
+            <field name="arch" type="xml">
+                <form string="Category" version="7.0">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="ciattrgroup_id"/>
+                            <field name="englishname"/>
+                            <field name="datatype"/>
+                            <field name="defaultvalue"/>
+                            <field name="is_clear"/>
+                        </group>
+					</sheet>
+				</form>
+			</field>
+		</record> -->
+		
+		<record id="commcmdb_ciattribute_list_view" model="ir.ui.view">
+            <field name="name">commcmdb.ciattribute.list</field>
+            <field name="model">commcmdb.ciattribute</field>
+            <field name="priority">1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="CiAttribute">
+                    <field name="name"/>
+                    <field name="ciattrgroup_id"/>
+                    <field name="englishname"/>
+                    <field name="datatype"/>
+                    <field name="defaultvalue"/>
+                    <field name="is_clear"/>
+                </tree>
+            </field>
+        </record>
+ 
+        <record id="commcmdb_action_ciattribute_show" model="ir.actions.act_window">
+            <field name="name">CI Attribute</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">commcmdb.ciattribute</field>
+            <field name="domain">[]</field>
+            <field name="view_type">form</field>
+        </record>
+        
+	<!-- ATTRPOOL END -->
+	
+	<!-- Custom -->
+		<record id="action_custom_citemplate" model="ir.actions.client">
+				<field name="name">citemplate</field>				
+				<field name="tag">custom.citemplate</field>
+		</record>
+		
+		<record id="action_custom_citemplate_edit" model="ir.actions.client">
+				<field name="name">citemplate_edit</field>
+				<field name="params" eval="{'edittype':'create'}"/>
+				<field name="tag">custom.citemplateedit</field>
+		</record>
+	  
+    <!-- Custom END -->   
+		<menuitem id="menu_comm_root" name="COMM" sequence="10" />
+			<menuitem id="menu_commcmdb_root" name="CMDB管理" parent="menu_comm_root" sequence="20"/>
+				<menuitem id="menu_commcmdb_c_new_manager" action="commcmdb_action_c_show" name="C分类" parent="menu_commcmdb_root" sequence="10"/>
+				<menuitem id="menu_commcmdb_t_manager" action="commcmdb_action_t_show" name="T分类" parent="menu_commcmdb_root" sequence="20"/>
+				<menuitem id="menu_commcmdb_i_manager" action="commcmdb_action_i_show" name="I 分类" parent="menu_commcmdb_root" sequence="30"/>
+				<menuitem id="menu_commcmdb_ciattributepool_manager" action="commcmdb_action_ciattribute_show" name="CI 属性池" parent="menu_commcmdb_root" sequence="40"/>
+				<menuitem id="menu_commcmdb_relation_manager" action="commcmdb_action_relation_show" name="CI 关系池" parent="menu_commcmdb_root" sequence="60"/>
+				<menuitem id="menu_commcmdb_citemplate_manager" action="commcmdb_action_citemplate_show" name="CI 模板" parent="menu_commcmdb_root" sequence="70"/>
+				<menuitem id="menu_commcmdb_custom_citemplate_manager" action="action_custom_citemplate" name="CI 模板(tree)" parent="menu_commcmdb_root" sequence="70"/>
+				<menuitem id="menu_commcmdb_custom_citemplate_edit_manager" action="action_custom_citemplate_edit" name="CI 模板(Edit)" parent="menu_commcmdb_root" sequence="70"/>
+				<menuitem id="menu_commcmdb_citemplate_attr_manager" action="commcmdb_action_citemplate_attr_show" name="CI 模板属性" parent="menu_commcmdb_root" sequence="70"/>
+				<menuitem id="menu_commcmdb_citemplate_relation_manager" action="commcmdb_action_citemplate_relation_show" name="CI 模板关系" parent="menu_commcmdb_root" sequence="70"/>
+</data>
+</openerp>
